@@ -1,10 +1,15 @@
 .header {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    text-align: center;
-    background-color: purple;
-    color: white;
-  }
-  
+    background-color: #3273dc;
+    position: fixed;
+    top: 2%;
+    padding: 0;
+    text-align: left;
+    left: 5%;
+    height: 13%;
+    width: 90%;
+}
+.header-container {
+    margin-left: 2%;
+    float: relative;
+    color:aliceblue;
+}

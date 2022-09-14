@@ -1,10 +1,15 @@
 .footer {
+    background-color: #f1f1f2;
     position: absolute;
-    bottom: 0px;
-    left: 0;
+    bottom: 0;
     width: 100%;
-    text-align: center;
-    background-color: lightblue;
-    color: gray;
+    padding-bottom: 2.5rem;
   }
+
+
+b {
+  text-align: center;
+  text-size-adjust: 10px;
+  position: fixed;
   
+}

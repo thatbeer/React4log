@@ -1,0 +1,26 @@
+.sign-up-container {
+    background-color: bisque;
+    text-align: center;
+    padding: 15%;
+    height: 20%;
+    justify-content:center;
+    display: flex;
+}
+
+.sign-up-container .form-box-container {
+    background-color: aliceblue;
+    justify-content: space-between;
+    height: 200px;
+    width: 600px;
+    padding-left: 5%;
+    padding-right: 5%;
+    
+}
+
+.sign-up-container .form-box-container .form-container{
+    background-color: aquamarine;
+    justify-content:space-around;
+    display :flex;
+    flex-direction: column;
+}
+
