@@ -1,29 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
-import Footer from './component/footer/footer.component';
-import Header from './component/header/header.component';
+import { Routes , Route , Outlet} from 'react-router-dom'
 
 
-function App() {
+import SignInForm from './component/sign-in-form/sign-in-form.component';
+import Home from './route/navigation/home/home.component';
+import Navigation from './route/navigation/navigation.route';
+import TestButton from './component/TestButton/testbutton.component';
+
+const Shop = () => {
+  return <h1>I am the Nav linkbar</h1>;
+};
+
+
+const App = () => {
   return (
-    <div className="App">
-      <Header/>
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-      <Footer note="Footer Note"/>
-    </div>
+      <Routes>
+        <Route path='/' element={<Navigation/>} >
+          <Route index element={<Home />}/>
+          <Route path='shop' element={<Shop/>}/>
+          <Route path='signin' element={<SignInForm/>}/>
+          <Route path="testbutton" element={<TestButton/>}/>
+        </Route>
+      </Routes>
   );
 }
 
