@@ -43,6 +43,7 @@ const TestButton = () => {
             <header>
                 <Container>
                 <Form onSubmit={handleChange}>
+                <div className='form-inner'>
                     <Row>
                         <Col>
                         <Form.Group className="mb-3">
@@ -62,6 +63,7 @@ const TestButton = () => {
                         </Col>
                     </Row>
                     <Button variant='outline-primary' value= 'submit'type='submit' size="lg">Login</Button>
+                </div>
                 </Form>
                 </Container>
             </header>
