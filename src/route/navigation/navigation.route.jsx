@@ -14,6 +14,8 @@ const Navigation = () => {
               <CrwnLogo className="logo" />
                LOGO
             </Link>
+            <div>
+            </div>
             <div className="nav-link-container">
                 <Link className="nav-link" to='/testbutton'>
                     Click
@@ -21,6 +23,9 @@ const Navigation = () => {
                 <Link className="nav-link" to='/signin'>
                     SignIn
                 </Link>  
+                <Link className="nav-link" to='/testtest'>
+                test 01
+                </Link>
             </div>
         </div>
         <Outlet />

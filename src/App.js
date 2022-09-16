@@ -6,6 +6,8 @@ import Home from './route/navigation/home/home.component';
 import Navigation from './route/navigation/navigation.route';
 import TestButton from './component/TestButton/testbutton.component';
 import LoginCom from './component/login/login.component';
+import LoginForm from './component/login/loginform.component';
+
 
 const Shop = () => {
   return <h1>I am the Nav linkbar</h1>;
@@ -20,7 +22,7 @@ const App = () => {
           <Route path='shop' element={<Shop/>}/>
           <Route path='signin' element={<SignInForm/>}/>
           <Route path="testbutton" element={<TestButton/>}/>
-          <Route path="testlogin" element={<LoginCom/>}/>
+          <Route path="testtest" element={<LoginCom/>}/>
         </Route>
       </Routes>
   );
