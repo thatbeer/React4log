@@ -2,9 +2,9 @@
 import './reward.styles.css'
 
 const RewardItem = ({category}) => {
-    const {id,title,imageUrl} = category;
+    const {title,imageUrl} = category;
     return (
-            <div key={id} className='category-container'>
+            <div  className='category-container'>
                  <div
                      className='background-image' 
                     style={{
@@ -19,4 +19,4 @@ const RewardItem = ({category}) => {
     );
 };
 
-export default RewardItem
+export default RewardItem;
