@@ -7,7 +7,7 @@ import Navigation from './route/navigation/navigation.route';
 import TestButton from './component/TestButton/testbutton.component';
 import LoginCom from './component/login/login.component';
 import LoginForm from './component/login/loginform.component';
-import SignIn from './route/signIn/signIn.component';
+import Authentication from './route/authentication/authentication.component';
 
 
 const Shop = () => {
@@ -21,10 +21,9 @@ const App = () => {
         <Route path='/' element={<Navigation/>} >
           <Route index element={<Home />}/>
           <Route path='shop' element={<Shop/>}/>
-          <Route path='signin' element={<SignIn/>}/>
+          <Route path='signin' element={<Authentication/>}/>
           <Route path="testbutton" element={<TestButton/>}/>
           <Route path="testtest" element={<LoginCom/>}/>
-          <Route path="testsignin" element={<SignIn/>}/>
         </Route>
       </Routes>
   );

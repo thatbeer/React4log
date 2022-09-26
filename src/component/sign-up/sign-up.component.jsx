@@ -1,8 +1,12 @@
 import { Form } from "react-router-dom"
 import { useState } from "react";
 
+import { createUserDocumentFromAuth } from "../../utils/firebase/firebase.utls";
+import { createAuthUserWithEmailAndPassword } from "../../utils/firebase/firebase.utls";
 
-import { createAuthWithEmailAndPassword} from '../../utils/firebase/firebase.utls   '
+import FormInput from "../forminput/forminput.component";
+import Button from "../button/button.component";
+import './sign-up.styles.scss'
 
 const defaultFormFields = {
     displayName: '',
@@ -16,20 +20,36 @@ const SignUpform = () => {
     const [formFields, setFormFields] = useState(defaultFormFields);
     const { displayName, email, password,confirmPassword} = formFields;
 
+    const resetFormFields = () => {
+        setFormFields(defaultFormFields);
+    }
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const {email , password} = event.target;
+        
 
         if(password !== confirmPassword) {
             alert("password does not match");
             return;
         }
         try {
-            const response = await createAuthWithEmailAndPassword(email,password);
-            console.log(response)
+            const {user} = await createAuthUserWithEmailAndPassword(email,password);
+            console.log(user)
+
+            await createUserDocumentFromAuth(user,{ displayName});
+            alert('succeed')
+            resetFormFields();
+
+
         } catch(error) {
-            console.error('user creation encoutered an error',error)
+            if(error.code === 'auth/email-already-in-use') {
+                alert("cannot create user , email already in use");
+            } else if (error.code === 'auth/weak-password'){
+                alert("cannot create user , password too weak(password should contain as least 6 characters");
+            }
+            else {
+                console.error('user creation encoutered an error',error)
+            }
         }
 
         
@@ -43,22 +63,22 @@ const SignUpform = () => {
 
 
     return (
-        <div>
-            <h2>SignUp with your email and password</h2>
-            <form onSubmit={() => {}}>
-                <label>user Name</label>
-                <input type="text" required onChange={handleChange} name="displayName" value={displayName} />
+        <div className="sign-up-container">
+            <span>SignUp with your email and password</span>
+            <form onSubmit={handleSubmit}>
 
-                <label>email</label>
-                <input type="email" required onChange={handleChange} name="email"value={email} />
+                <FormInput label="display name" type="text" required onChange={handleChange} name="displayName" value={displayName} />
 
-                <label>password</label>
-                <input type="password" required onChange={handleChange} name = "password" value={password}/>
+                
+                <FormInput label="Email" type="email" required onChange={handleChange} name="email"value={email} />
 
-                <label>Confirm password</label>
-                <input type="password" required onChange={handleChange} name="ConfirmPassword" value={confirmPassword}/>
+               
+                <FormInput label="Password" type="password" required onChange={handleChange} name = "password" value={password}/>
 
-                <button type="submit">BUTTON SignUp</button>
+             
+                <FormInput label="Confirm Password" type="password" required onChange={handleChange} name= "confirmPassword" value={confirmPassword}/>
+
+                <Button buttonType='google' type="submit">BUTTON SignUp</Button>
             </form>
         </div>
     )
