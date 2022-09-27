@@ -10,6 +10,8 @@ import { signInWithGooglePopup ,
     auth,
 } from "../../utils/firebase/firebase.utls";
 
+import './authentication.styles.scss'
+
 const Authentication = () => {
     const logGoogleUser = async () => {
         const {user} = await signInWithGooglePopup();
@@ -20,7 +22,7 @@ const Authentication = () => {
 
     return (
         <div>
-            <h1>Sign In Page</h1>
+            <h1 className="authentication-container" >Sign In Page</h1>
             <SignInform/>
             <SignUpform/>
         </div>
